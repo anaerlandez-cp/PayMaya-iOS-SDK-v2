@@ -32,6 +32,7 @@ class CardPaymentTokenView: UIView {
     private let cardNumber: LabeledTextField
     private let cvv: CVVLabeledTextField
     private let validityDate: LabeledTextField
+	private let sampleDate: LabeledTextField
 
     private let imageView = UIImageView()
     private let indicatorView = UIActivityIndicatorView(style: .gray)
@@ -49,6 +50,7 @@ class CardPaymentTokenView: UIView {
         self.cardNumber = CardLabeledTextField(model: model.cardNumberModel)
         self.cvv = CVVLabeledTextField(model: model.cvvModel)
         self.validityDate = LabeledTextField(model: model.expirationDateModel)
+		self.sampleDate = LabeledTextField(model: model.expirationDateModel)
         super.init(frame: .zero)
         model.setContract(self)
         model.setOnEditingChanged({ [weak self] in self?.onEditingChanged($0) })
@@ -101,6 +103,7 @@ private extension CardPaymentTokenView {
         addSubview(mainStack)
         mainStack.addArrangedSubview(cardNumber)
         mainStack.addArrangedSubview(minorStack)
+		mainStack.addArrangedSubview(sampleDate)
         minorStack.addArrangedSubview(validityDate)
         minorStack.addArrangedSubview(cvv)
         addSubview(indicatorView)
