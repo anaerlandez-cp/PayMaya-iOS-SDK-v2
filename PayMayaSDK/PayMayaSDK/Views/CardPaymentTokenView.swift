@@ -116,8 +116,9 @@ private extension CardPaymentTokenView {
         setupMainStack()
         setupMinorStack()
 
-        setupSynTextContainerView()   // ← MOVE THIS UP
-
+        setupSynTextContainerView()
+        setup_cardHStack()
+        
         setupButton(with: data.styling)
         setupActivityIndicator()
     }
