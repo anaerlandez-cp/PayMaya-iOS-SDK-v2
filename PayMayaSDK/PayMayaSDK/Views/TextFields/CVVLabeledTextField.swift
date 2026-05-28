@@ -20,16 +20,17 @@
 import UIKit
 
 class CVVLabeledTextField: LabeledTextField {
-    private var hintTapped: OnHintTapped?
-    
+    // private var hintTapped: OnHintTapped?
+
     init(model: CVVTextFieldViewModel) {
         super.init(model: model)
-        setupHintButton()
-        hintTapped = model.onHintTapped
+        // setupHintButton()
+        // hintTapped = model.onHintTapped
         isSecureTextEntry = true
     }
 }
 
+/*  CVV hint info-button — commented out per design (keep for reference, may restore)
 private extension CVVLabeledTextField {
     func setupHintButton() {
         let hintButton = UIButton(type: .system)
@@ -41,10 +42,11 @@ private extension CVVLabeledTextField {
         rightViewMode = .always
         rightView = hintButton
     }
-    
+
     @objc func handleHintTapped() {
         if let view = rightView {
             hintTapped?(view)
         }
     }
 }
+*/
