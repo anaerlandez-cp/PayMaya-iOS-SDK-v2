@@ -1,4 +1,4 @@
-// swift-tools-version:6.2
+// swift-tools-version:5.5
 import PackageDescription
 
 let package = Package(
@@ -13,7 +13,6 @@ let package = Package(
         ),
     ],
     dependencies: [
-        // Add Google SignIn dependency
         .package(url: "https://github.com/google/GoogleSignIn-iOS.git", from: "9.1.0")
     ],
     targets: [
@@ -22,12 +21,11 @@ let package = Package(
             dependencies: [
                 .product(name: "GoogleSignIn", package: "GoogleSignIn-iOS")
             ],
-            path: "PayMayaSDK"
-        ),
-        .testTarget(
-            name: "PayMayaSDKTests",
-            dependencies: ["PayMayaSDK"],
-            path: "PayMayaSDKTests"
+            path: "PayMayaSDK/PayMayaSDK",
+            exclude: ["Info.plist"],
+            resources: [
+                .process("Defaults.xcassets")
+            ]
         )
     ]
 )
